@@ -1,5 +1,6 @@
 import os
 import subprocess
+import sys
 
 
 def remove_subtitles_and_audio(input_folder, output_folder, sub_to_keep, audio_to_keep):
@@ -35,7 +36,7 @@ def remove_subtitles_and_audio(input_folder, output_folder, sub_to_keep, audio_t
 
 
 if __name__ == "__main__":
-    input_folder = r"path"  # Replace with the path to your input folder
+    input_folder = sys.argv[1]  # Replace with the path to your input folder
     output_folder = "output_folder"  # Replace with the path to your output folder
     subtitle_track_to_keep = 2  # Specify the subtitle track to keep
     audio_to_keep = 2
