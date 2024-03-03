@@ -67,7 +67,7 @@ if __name__ == "__main__":
 
     input_folder = sys.argv[1]
     output_folder = "output_folder"  # Define your output folder name here
-    subtitle_track_to_keep = 5  # Define the subtitle track to keep
     audio_track_to_keep = 3  # Define the audio track to keep
+    subtitle_track_to_keep = 7  # Define the subtitle track to keep
 
     process_files(input_folder, output_folder, subtitle_track_to_keep, audio_track_to_keep)
