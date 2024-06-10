@@ -14,7 +14,7 @@ def identify_and_parse_tracks(file_path):
     last_english_subtitle_track_id = None
 
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+        result = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', check=True)
         track_info = json.loads(result.stdout)
 
         print(f"Track information for {file_path}:")
@@ -26,10 +26,11 @@ def identify_and_parse_tracks(file_path):
 
             print(f"  - Track ID: {track_id}, Type: {track_type}, Language: {track_lang}")
 
-            if track_type == 'audio' and track_lang == 'en':
+            if track_type == 'audio' and 'en' in track_lang:
                 last_audio_track_id = track_id
-            if track_type == 'subtitles' and track_lang == 'en':
+            if track_type == 'subtitles' and 'en' in track_lang:
                 last_english_subtitle_track_id = track_id
+
 
 
     except subprocess.CalledProcessError as e:
@@ -85,6 +86,6 @@ if __name__ == "__main__":
     output_folder = "output_folder"
     manual = False  # Set to True if you want to manually specify tracks
     audio_track_to_keep = 1  # This will be used if manual is True
-    subtitle_track_to_keep = 3  # This will be used if manual is True
+    subtitle_track_to_keep = 1  # This will be used if manual is True
 
     process_files(input_folder, output_folder, manual, audio_track_to_keep, subtitle_track_to_keep)
