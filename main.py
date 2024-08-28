@@ -62,7 +62,7 @@ def process_files(input_folder, output_folder, manual, audio_track_to_keep, subt
         os.makedirs(output_changed_folder)
 
     for filename in os.listdir(input_folder):
-        if filename.lower().endswith((".avi", ".mkv", ".mp4")):
+        if filename.lower().endswith((".avi", ".mkv", ".mp4", ".m4v")):
             input_path = os.path.join(str(input_folder), str(filename))
             output_path = os.path.join(str(output_changed_folder), str(filename))
 
